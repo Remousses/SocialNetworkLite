@@ -1,0 +1,12 @@
+**/target/
+
+### Eclipse ###
+**/.editorconfig
+**/.project
+**/.classpath
+**/.settings
+**/bin/
+
+### VS Code ###
+**/.vscode/
+**/.idea/

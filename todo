@@ -1,0 +1,14 @@
+Database:
+    ✔ User (id, firstName, lastName, pseudo, email, country, birthDate, password, isActive) @done(23-04-17 19:06)
+    ✘ AuthorView (userId, userPseudo, userIsActive) @cancelled(23-04-16 16:00)
+    ✔ Status (id, name, label) @done(23-04-17 19:06)
+    ✔ Post (id, content, updateDate, authorId, statusId) @done(23-04-17 19:06)
+    ✔ Comment (id, comment, updateDate, userId, statusId, postId) @done(23-04-17 19:06)
+    ✔ Friendship (userId, userId) @done(23-04-17 19:06)
+
+Blog:
+    ☐ Create view
+    ☐ Insert text
+    ☐ See post of friends ordered by 
+
+Chat:
