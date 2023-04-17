@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  mysql-db:
+    container_name: social-network-lite-mysql-db
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./db-init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: social_network_lite
+    ports:
+      - 3306:3306
