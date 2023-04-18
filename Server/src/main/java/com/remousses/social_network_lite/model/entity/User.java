@@ -11,16 +11,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "first_name", nullable = false)
@@ -29,24 +34,28 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "pseudo", nullable = false)
+    @Column(nullable = false)
     private String pseudo;
 
-    @Column(name = "email", nullable = false)
+    @Column(nullable = false)
     private String email;
 
-    @Column(name = "country", nullable = false)
+    @Column(nullable = false)
     private String country;
 
     @Column(name = "birth_date", nullable = false)
     @Convert(converter = LocalDateConverter.class)
     private LocalDate birthDate;
 
-    @Column(name = "password", nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "active", nullable = false)
+    @Column(nullable = false)
     private boolean active;
+
+    @OneToMany
+    @JoinTable(name = "friendship", joinColumns = { @JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "user_id_friendship") })
+    private List<Friendship> friendships;
 
     public User(String firstName, String lastName) {
         this.firstName = firstName;

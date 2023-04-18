@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -25,5 +26,11 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> findTest() {
         final List<User> user = userRepository.find();
         return modelMapper.mapList(user, UserDto.class);
+    }
+
+    @Override
+    public UserDto getById(final Long userId) {
+        final Optional<User> user = userRepository.findById(userId);
+        return user.map(value -> modelMapper.map(value, UserDto.class)).orElse(null);
     }
 }
