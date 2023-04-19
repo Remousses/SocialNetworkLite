@@ -1,4 +1,4 @@
-package com.remousses.social_network_lite.configuration;
+package com.remousses.social_network_lite;
 
 import com.remousses.social_network_lite.component.ModelMapperCustomize;
 import org.springframework.boot.SpringApplication;
